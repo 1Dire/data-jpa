@@ -1,20 +1,21 @@
 package study.dataJpa.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 
 
 @Getter
 @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@ToString(of = {"id","username","age"})
 public class Member {
     @Id
     @GeneratedValue
     @Column(name = "member_id")
     private Long id;
-    private String userName;
+    private String username;
     private int age;
 
     @ManyToOne
@@ -22,15 +23,14 @@ public class Member {
     private Team team;
 
 
-    protected Member() {
-    }
 
     public Member(String userName) {
-        this.userName = userName;
+        this.username = userName;
     }
 
-    public void changeUserName(String userName) {
-        this.userName = userName;
+    public  void changeTeam(Team team) {
+        this.team = team;
+        team.getMembers().add(this);
     }
 
 }
