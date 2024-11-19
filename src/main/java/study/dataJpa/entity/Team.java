@@ -19,7 +19,7 @@ public class Team {
     private String name;
 
     @OneToMany
-    private List<Member> members = new ArrayList<Member>();
+    private List<Member> members = new ArrayList<>();
 
     public Team(String name) {
         this.name = name;
