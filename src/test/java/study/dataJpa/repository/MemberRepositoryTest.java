@@ -71,16 +71,28 @@ class MemberRepositoryTest {
     }
 
     @Test
-    public void findMemberDto() {
-        Team team = new Team("teamA");
-        teamRepository.save(team);
-
+    public void findUsernameList() {
         Member m1 = new Member("AAA", 10);
-        m1.setTeam(team);
+        Member m2 = new Member("AAA", 20);
         memberRepository.save(m1);
-        List<MemberDto> memberDto = memberRepository.findMemberDto();
-        for (MemberDto dto : memberDto) {
-            System.out.println("dto= " + dto);
+        memberRepository.save(m2);
+        List<String> usernameList = memberRepository.findUsernameList();
+        for (String s : usernameList) {
+            System.out.println("S=" + s);
         }
+    }
+
+    @Test
+    public void findMemberDto() {
+//        Team team = new Team("teamA");
+//        teamRepository.save(team);
+//
+//        Member m1 = new Member("AAA", 10);
+//        m1.setTeam(team);
+//        memberRepository.save(m1);
+//        List<MemberDto> memberDto = memberRepository.findMemberDto();
+//        for (MemberDto dto : memberDto) {
+//            System.out.println("dto= " + dto);
+//        }
     }
 }
