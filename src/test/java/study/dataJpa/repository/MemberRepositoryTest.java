@@ -84,15 +84,17 @@ class MemberRepositoryTest {
 
     @Test
     public void findMemberDto() {
-//        Team team = new Team("teamA");
-//        teamRepository.save(team);
-//
-//        Member m1 = new Member("AAA", 10);
-//        m1.setTeam(team);
-//        memberRepository.save(m1);
-//        List<MemberDto> memberDto = memberRepository.findMemberDto();
-//        for (MemberDto dto : memberDto) {
-//            System.out.println("dto= " + dto);
-//        }
+        Team team = new Team("teamA");
+        teamRepository.save(team);
+
+        Member m1 = new Member("AAA", 10);
+        m1.setTeam(team);
+        memberRepository.save(m1);
+
+        List<MemberDto> memberDto = memberRepository.findMemberDto();
+        for (MemberDto dto : memberDto) {
+            System.out.println("dto=" + dto);
+        }
+
     }
 }
